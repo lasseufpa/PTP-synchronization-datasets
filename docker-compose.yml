@@ -1,7 +1,11 @@
-  services:
-    lasse-ptp-sync:
-      build: .
-      ports:
-        - "8501:8501"
-      container_name: lasse-ptp-sync-container
-      restart: unless-stopped
+version: '3.8'
+
+services:
+  lasse-ptp-sync:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      - "STREAMLIT_ENV=production"
