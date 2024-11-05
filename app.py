@@ -35,6 +35,12 @@ logo_img = Image.open("images/LASSE_logo.png")
 team_member_1 = Image.open("images/aldebaro.jpeg")
 team_member_2 = Image.open("images/jose.jpeg")
 team_member_3 = Image.open("images/joao.jpeg")
+team_member_4 = Image.open("images/igorfreire.jpeg")
+team_member_5 = Image.open("images/camila.jpeg")
+team_member_6 = Image.open("images/douglas.jpeg")
+team_member_7 = Image.open("images/rodrigo.jpeg")
+team_member_8 = Image.open("images/dhomini.png")
+team_member_9 = Image.open("images/ilan.png")
 
 # Convert images to Base64 for embedding
 def image_to_base64(image):
@@ -86,7 +92,6 @@ with st.container():
             - and so on.
             """
         )
-        st.write("[Learn More >](https://www.lasse.ufpa.br/en/Projects/3)")
     with right_column:
         st_lottie(lottie_coding, height=300, key="coding")
 
@@ -108,8 +113,37 @@ with st.container():
             We encourage you to discover the project [repository](https://github.com/lasseufpa/ptp-dal)
             """
         )
-        st.write("[Catalog >](https://lasseufpa.github.io/PTP-synchronization-datasets/")
-        st.write("[Download >](https://nextcloud.lasseufpa.org/s/F39ZH2yPjFPsqZ9)")
+        
+        # Adjusted button for larger display
+        st.markdown("""
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <a href="https://lasseufpa.github.io/PTP-synchronization-datasets/" target="_blank">
+                    <button style="
+                        background-color: #F47721; /* Solid orange background */
+                        color: white; /* White text */
+                        padding: 20px 60px; /* Increased padding for a larger button */
+                        font-size: 24px; /* Larger font size */
+                        border: none; /* No border */
+                        border-radius: 12px; /* Rounded corners */
+                        cursor: pointer; /* Pointer cursor */
+                        transition: all 0.3s ease; /* Smooth transition */
+                        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Shadow for a smooth look */
+                        text-align: center;
+                    ">
+                        Go to datasets catalog
+                    </button>
+                </a>
+            </div>
+            <style>
+                /* Hover style for the button */
+                a button:hover {
+                    background-color: #ff8c42; /* Slightly lighter orange on hover */
+                    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
+                    transform: scale(1.05); /* Slightly larger on hover */
+                }
+            </style>
+        """, unsafe_allow_html=True)
+
     with fh_img:
         st.image(testbed_img)
 
@@ -136,12 +170,29 @@ with st.container():
         )
         st.markdown("[Watch](https://youtu.be/MPmGM559IGI?si=ccfjHCKOwTDZZrpp)")
 
+# Define CSS para imagens circulares com borda laranja
+circular_image_css = """
+<style>
+.team-member {
+    border-radius: 50%;
+    border: 3px solid #F47721; /* Borda laranja */
+    margin: auto;
+    display: block;
+    width: 150px;
+    height: 150px;
+}
+</style>
+"""
+
+# Apply CSS for circular images
+st.markdown(circular_image_css, unsafe_allow_html=True)     
+
+
 # Team section
 with st.container():
     st.write("---")
     st.header("Meet Our Team")
     st.write("##")
-    st.markdown(circular_image_css, unsafe_allow_html=True)
 
     # Display team members using HTML for custom styling
     member_column_1, member_column_2, member_column_3 = st.columns(3)
@@ -151,12 +202,8 @@ with st.container():
         <div style="text-align: center;">
             <img src="data:image/png;base64,{image_to_base64(team_member_1)}" class="team-member" alt="Dr. Aldebaro Klautau">
             <h2>
-                Aldebaro Klautau
+               &nbsp;&nbsp;Aldebaro Klautau
             </h2>
-            <p>
-                Ph. D. University of California at San Diego (UCSD) and <br>
-                Full Professor at the Federal University of Pará (UFPA).
-            </p>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/aldebaro-klautau-82a6586/" target="_blank" rel="noopener noreferrer">
                     <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="24" height="24" alt="LinkedIn">
@@ -174,12 +221,8 @@ with st.container():
             <div style="text-align: center;">
                 <img src="data:image/png;base64,{image_to_base64(team_member_2)}" class="team-member" alt="Jose Neto">
                 <h2>
-                    José Neto
+                        &nbsp;&nbsp;&nbsp;&nbsp;José Neto
                 </h2> 
-                <p>
-                    Electrical engineering student at UFPA and <br>
-                    researcher at LASSE
-                </p>
                 <div class="social-links">
                 <a href="https://www.linkedin.com/in/jose-de-deus-neto/" target="_blank" rel="noopener noreferrer">
                     <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="24" height="24" alt="LinkedIn">
@@ -197,12 +240,8 @@ with st.container():
             <div style="text-align: center;">
                 <img src="data:image/png;base64,{image_to_base64(team_member_3)}" class="team-member" alt="Joao Ferreira">
                 <h2>
-                    João Ferreira
+                    &nbsp;&nbsp;João Ferreira
                 </h2>
-                <p>
-                    Telecommunications engineering student at UFPA and <br>
-                    researcher at LASSE
-                </p>
                 <div class="social-links">
                 <a href="https://www.linkedin.com/in/jvictorferreira3301/" target="_blank" rel="noopener noreferrer">
                     <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="24" height="24" alt="LinkedIn">
@@ -212,6 +251,130 @@ with st.container():
             </div>
         </div>
         """,
+            unsafe_allow_html=True
+        )
+    
+    st.write("##")
+
+    # Additional rows for new team members
+    member_column_4, member_column_5, member_column_6 = st.columns(3)
+    with member_column_4:
+        st.markdown(
+            f"""
+            <div style="text-align: center;">
+                <img src="data:image/png;base64,{image_to_base64(team_member_4)}" class="team-member" alt="Team Member 4">
+                <h2>
+                    &nbsp;&nbsp;Igor Freire
+                </h2>
+                <div class="social-links">
+                <a href="https://www.linkedin.com/in/igorauad/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="24" height="24" alt="LinkedIn">
+                <a href="https://github.com/igorauad" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="24" height="24" alt="GitHub">
+                </a>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+    with member_column_5:
+        st.markdown(
+            f"""
+            <div style="text-align: center;">
+                <img src="data:image/png;base64,{image_to_base64(team_member_5)}" class="team-member" alt="Team Member 5">
+                <h2>
+                    &nbsp;&nbsp;Camila Novaes
+                </h2>
+                <div class="social-links">
+                <a href="https://br.linkedin.com/in/canovaes" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="24" height="24" alt="LinkedIn">
+                <a href="https://github.com/camilanovaes" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="24" height="24" alt="GitHub">
+                </a>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+        
+    with member_column_6:
+        st.markdown(
+            f"""
+            <div style="text-align: center;">
+                <img src="data:image/png;base64,{image_to_base64(team_member_6)}" class="team-member" alt="Team Member 6">
+                <h2>
+                    &nbsp;&nbsp;Douglas Maia
+                </h2>
+                <div class="social-links">
+                <a href="https://linkedin.com/in/douglas-maia-33439921b" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="24" height="24" alt="LinkedIn">
+                <a href="https://github.com/m-dougl" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="24" height="24" alt="GitHub">
+                </a>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+    st.write("##")
+
+    # Third row for last two members
+    member_column_7, member_column_8, member_column_9 = st.columns(3)
+    with member_column_7:
+        st.markdown(
+            f"""
+            <div style="text-align: center;">
+                <img src="data:image/png;base64,{image_to_base64(team_member_7)}" class="team-member" alt="Team Member 7">
+                <h2>
+                    &nbsp;&nbsp;Rodrigo Dutra
+                </h2>
+                <div class="social-links">
+                <a href="https://www.linkedin.com/in/rodrigo-gomes-dutra-b2b0b412a/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="24" height="24" alt="LinkedIn">
+                <a href="https://github.com/rodgdutra" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="24" height="24" alt="GitHub">
+                </a>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+    with member_column_8:
+        st.markdown(
+            f"""
+            <div style="text-align: center;">
+                <img src="data:image/png;base64,{image_to_base64(team_member_8)}" class="team-member" alt="Team Member 8">
+                <h2>
+                   &nbsp;&nbsp;Dhomini Picanço
+                </h2>
+                <div class="social-links">
+                <a href="https://br.linkedin.com/in/dhomini-bezerra-pican%C3%A7o-456270192" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="24" height="24" alt="LinkedIn">
+                <a href="https://github.com/dhominicx" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="24" height="24" alt="GitHub">
+                </a>
+                </div>
+            </div>
+            """, 
+            unsafe_allow_html=True
+        )
+        with member_column_9:
+            st.markdown(
+                f"""
+                <div style="text-align: center;">
+                    <img src="data:image/png;base64,{image_to_base64(team_member_9)}" class="team-member" alt="Team Member 9">
+                    <h2>
+                        &nbsp;&nbsp;Ilan Sousa
+                    </h2>
+                    <div class="social-links">
+                    <a href="https://github.com/ilansousa" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="24" height="24" alt="GitHub">
+                </a>
+                </div>
+            </div>
+            """, 
             unsafe_allow_html=True
         )
 
