@@ -66,7 +66,7 @@ circular_image_css = """
 with st.container():
     col1, col2, col3 = st.columns([5, 1, 5])
     with col2:
-        st.image(logo_img, use_column_width=True)
+        st.image(logo_img, use_container_width=True)
 
 # Introduction section
 with st.container():
